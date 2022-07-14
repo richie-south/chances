@@ -1,0 +1,29 @@
+{
+  "name": "chances",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./lib/index.js",
+  "module": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "tsc & jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/richie-south/chances.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/richie-south/chances/issues"
+  },
+  "homepage": "https://github.com/richie-south/chances#readme",
+  "devDependencies": {
+    "@types/jest": "^28.1.5",
+    "jest": "^28.1.3",
+    "ts-jest": "^28.0.6",
+    "typescript": "^4.7.4"
+  }
+}
