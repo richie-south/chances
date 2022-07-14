@@ -1,1 +1,1 @@
-export declare function chance(...values: any[]): any;
+export declare function chance<T>(...values: Array<[number, T]>): T | undefined;

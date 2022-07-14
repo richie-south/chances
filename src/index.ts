@@ -1,20 +1,20 @@
-export function chance(...values) {
+export function chance<T>(...values: Array<[number, T]>): T | undefined {
   const random = Math.floor(Math.random() * 100)
 
   const result = values
     .reduce(
-      (data, [percentage, event]) => {
-        const startStep = data.total
-        const endStep = data.total + percentage - 1
+      ({total, steps}, [percentage, event]) => {
+        const startStep = total
+        const endStep = total + percentage - 1
 
-        if (data.total > 100) {
+        if (total > 100) {
           throw new Error('Total percentage is larger than 100.')
         }
 
         return {
-          total: data.total + percentage,
+          total: total + percentage,
           steps: [
-            ...data.steps,
+            ...steps,
             [
               [startStep, endStep],
               [percentage, event],
@@ -25,6 +25,9 @@ export function chance(...values) {
       {
         total: 1,
         steps: [],
+      } as {
+        total: number
+        steps: [string, T][]
       },
     )
     .steps.find(([[start, end]]) => {
